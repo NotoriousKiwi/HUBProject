@@ -162,6 +162,7 @@
     <ClInclude Include="Functions.h" />
     <ClInclude Include="OperationOverloading.h" />
     <ClInclude Include="Strings.h" />
+    <ClInclude Include="Templates.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

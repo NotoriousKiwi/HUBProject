@@ -1,2 +1,10 @@
 ﻿  HUBProject.cpp
+c:\users\s171753\documents\visual studio 2017\projects\hubproject\hubproject\hubproject.cpp(9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  c:\users\s171753\documents\visual studio 2017\projects\hubproject\hubproject\hubproject.cpp(26): note: see reference to function template instantiation 'R Addition<int,int,float>(T,W)' being compiled
+          with
+          [
+              R=int,
+              T=int,
+              W=float
+          ]
   HUBProject.vcxproj -> C:\Users\s171753\Documents\Visual Studio 2017\Projects\HUBProject\Debug\HUBProject.exe

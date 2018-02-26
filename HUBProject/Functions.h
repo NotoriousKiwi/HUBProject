@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 
+// TODO: Fix Functions class.
 //class Functions
 //{
 //protected:

@@ -80,5 +80,8 @@
     <ClInclude Include="OperationOverloading.h">
       <Filter>Header Files\IntroductionCPP</Filter>
     </ClInclude>
+    <ClInclude Include="Templates.h">
+      <Filter>Header Files\IntroductionCPP</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
