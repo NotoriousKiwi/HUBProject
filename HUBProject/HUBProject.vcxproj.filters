@@ -31,6 +31,9 @@
     <Filter Include="Source Files\CodeDesign">
       <UniqueIdentifier>{2c90c7d3-8b2a-493d-92ce-fb203314f94b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CodeRepository">
+      <UniqueIdentifier>{83e37bb4-b011-4f69-9dbb-5a6796649368}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HUBProject.cpp">
@@ -48,6 +51,15 @@
     <ClCompile Include="Array.cpp">
       <Filter>Source Files\IntroductionCPP</Filter>
     </ClCompile>
+    <ClCompile Include="CodeRepo1.cpp">
+      <Filter>CodeRepository</Filter>
+    </ClCompile>
+    <ClCompile Include="Functions.cpp">
+      <Filter>Source Files\IntroductionCPP</Filter>
+    </ClCompile>
+    <ClCompile Include="OperationOverloading.cpp">
+      <Filter>Source Files\IntroductionCPP</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vector.h">
@@ -60,6 +72,12 @@
       <Filter>Header Files\IntroductionCPP</Filter>
     </ClInclude>
     <ClInclude Include="Array.h">
+      <Filter>Header Files\IntroductionCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="Functions.h">
+      <Filter>Header Files\IntroductionCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="OperationOverloading.h">
       <Filter>Header Files\IntroductionCPP</Filter>
     </ClInclude>
   </ItemGroup>
