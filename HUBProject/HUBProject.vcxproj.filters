@@ -60,6 +60,9 @@
     <ClCompile Include="OperationOverloading.cpp">
       <Filter>Source Files\IntroductionCPP</Filter>
     </ClCompile>
+    <ClCompile Include="Sorting.cpp">
+      <Filter>Source Files\IntroductionCPP</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vector.h">
@@ -81,6 +84,9 @@
       <Filter>Header Files\IntroductionCPP</Filter>
     </ClInclude>
     <ClInclude Include="Templates.h">
+      <Filter>Header Files\IntroductionCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="Sorting.h">
       <Filter>Header Files\IntroductionCPP</Filter>
     </ClInclude>
   </ItemGroup>
