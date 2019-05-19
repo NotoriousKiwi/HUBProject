@@ -12,6 +12,7 @@ public:
 	void getUsername();
 	void getUsernameAndPassword();
 	void displayUsernameReverse();
+	void stringLength();
 
 	static const int Height = 6;
 	static const int Width = 1;

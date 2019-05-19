@@ -89,6 +89,16 @@ void Strings::displayUsernameReverse()
 	std::cout << std::endl;
 }
 
+void Strings::stringLength()
+{
+	char tempString[30];
+
+	std::cout << "Please enter the string you wish to determine length for:" << std::endl;
+	gets_s(tempString);
+
+	std::cout << "The length of your string is: " << (unsigned)strlen(tempString) << std::endl;
+}
+
 Strings::~Strings()
 {
 
