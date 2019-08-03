@@ -89,14 +89,23 @@ void Strings::displayUsernameReverse()
 	std::cout << std::endl;
 }
 
+// Displays the current length of the string.
 void Strings::stringLength()
 {
-	char tempString[30];
 
-	std::cout << "Please enter the string you wish to determine length for:" << std::endl;
-	gets_s(tempString);
+// length function serves same purpose as .size and is there to improve readability and cohesion with other libraries.
 
-	std::cout << "The length of your string is: " << (unsigned)strlen(tempString) << std::endl;
+	std::string tempString ("Testing String");
+
+	std::cout << "The size of this string is: " << tempString.length() << " bytes. \n";
+
+}
+
+void Strings::stringMax()
+{
+	std::string tempString("Testing String");
+
+	std::cout << "The maximum size this string can reach is: " << tempString.max_size() << "\n";
 }
 
 Strings::~Strings()
