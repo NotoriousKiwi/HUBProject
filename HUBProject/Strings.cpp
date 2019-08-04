@@ -52,60 +52,123 @@ void Strings::getUsername()
 	std::cout << std::endl;
 }
 
-void Strings::getUsernameAndPassword()
+// ALL STRING ITERATOR FUNCTIONS
+void Strings::Iterators()
 {
-	std::string username;
-	std::string password;
-	bool validPassword = false;
+	// Will merely print out the string but will use an iterator to do so.
+	std::string tempString("Testing String");
 
-	std::cout << "Please enter a username: ";
-	std::getline(cin, username);
-	
-	while (validPassword == false)
+	for (std::string::iterator it = tempString.begin(); it != tempString.end(); ++it)
 	{
-		std::cout << "Please enter a password (must be at least 8 characters containing a capital letter, a number and a symbol): ";
-		std::getline(cin, password);
-
-		if (password.length() < 8)
-		{
-			std::cout << "Your password is too short, please try again." << std::endl;
-		}
-		else
-		{
-			validPassword = true;
-		}
-	}
-	
-}
-
-// Displays the username previously entered but in reverse.
-void Strings::displayUsernameReverse()
-{
-	for (int i = name.length() - 1; i >= 0; --i)
-	{
-		std::cout << name[i];
+		std::cout << *it;
 	}
 
 	std::cout << std::endl;
 }
 
-// Displays the current length of the string.
-void Strings::stringLength()
+// ALL STRING CAPACITY FUNCTIONS
+void Strings::Capacity()
 {
+	unsigned int selection;
+	
+	std::string tempString("Testing String");
+	std::string secondaryString(100, 'e');
 
-// length function serves same purpose as .size and is there to improve readability and cohesion with other libraries.
+	unsigned sz = tempString.size();
 
-	std::string tempString ("Testing String");
+	bool menuActive = true;
 
-	std::cout << "The size of this string is: " << tempString.length() << " bytes. \n";
+	while (menuActive == true)
+	{
+		std::cout << "0. Exit Menu." << std::endl;
+		std::cout << "1. Length." << std::endl;
+		std::cout << "2. Max Size." << std::endl;
+		std::cout << "3. Resize." << std::endl;
+		std::cout << "4. Capacity." << std::endl;
+		std::cout << "5. Clear." << std::endl;
+		std::cout << "6. Empty." << std::endl;
+		std::cout << "7. Shrink to Fit." << std::endl;
+		std::cin >> selection;
+
+		switch (selection)
+		{
+		case 0:
+			menuActive = false;
+			break;
+		case 1:
+			// length function serves same purpose as .size and is there to improve readability and cohesion with other libraries.
+			std::cout << "The size of this string is: " << tempString.length() << " bytes. \n";
+			break;
+		case 2:
+			// Displays the max size of string in bytes.
+			std::cout << "The maximum size this string can reach is: " << tempString.max_size() << "\n";
+			break;
+		case 3:
+			// Resizes the legnth of the string (can cut off text).
+			std::cout << tempString << '\n';
+
+			// Appends the second string to the first, take note the added string will purely be a set of "d".
+			tempString.resize(sz + 6, 'd');
+			std::cout << tempString << '\n';
+
+			// Current length of string will now be 14 characters long.
+			tempString.resize(14);
+			std::cout << tempString << '\n';
+			break;
+		case 4:
+			std::cout << "Capacity: " << tempString.capacity() << std::endl;
+			break;
+		case 5:
+			// Erases the contents of the string, becomes an empty string with 0 characters.
+			std::cout << tempString << std::endl;
+			tempString.clear();
+			std::cout << tempString << std::endl;
+			break;
+		case 6:
+			// Returns true if the current length of string is 0, false otherwise.
+			if (tempString.empty() == true)
+			{
+				std::cout << "This string is now empty." << std::endl;
+			}
+			else if (tempString.empty() == false)
+			{
+				std::cout << "The string contains characters." << std::endl;
+			}
+			break;
+		case 7:
+			// Requests that the string reduces its capacity to fit its size.
+			std::cout << "1. Current Capacity of string: " << secondaryString.capacity() << std::endl;
+			secondaryString.resize(10);
+			std::cout << "2. Current Capacity of string: " << secondaryString.capacity() << std::endl;
+			secondaryString.shrink_to_fit();
+			std::cout << "3. Current Capacity of string: " << secondaryString.capacity() << std::endl;
+			std::cout << secondaryString << std::endl;
+			break;
+		default:
+			break;
+		}
+
+		// Restores tempString to default value once a function has been run.
+		tempString = ("Testing String");
+	}
+}
+
+// ALL STRING ELEMENT ACCESS FUNCTIONS
+void Strings::elementAccess()
+{
 
 }
 
-void Strings::stringMax()
+// ALL STRING MODIFIER FUNCTIONS
+void Strings::Modifiers()
 {
-	std::string tempString("Testing String");
 
-	std::cout << "The maximum size this string can reach is: " << tempString.max_size() << "\n";
+}
+
+// ALL STRING OPERATIONS FUNCTIONS
+void Strings::stringOperations()
+{
+
 }
 
 Strings::~Strings()
