@@ -55,15 +55,47 @@ void Strings::getUsername()
 // ALL STRING ITERATOR FUNCTIONS
 void Strings::Iterators()
 {
-	// Will merely print out the string but will use an iterator to do so.
 	std::string tempString("Testing String");
 
-	for (std::string::iterator it = tempString.begin(); it != tempString.end(); ++it)
-	{
-		std::cout << *it;
-	}
+	bool menuActive = true;
+	int selection{};
 
-	std::cout << std::endl;
+	while (menuActive == true)
+	{
+		std::cout << "0. Exit Menu." << std::endl;
+		std::cout << "1. Example Iterator." << std::endl;									// Iterates through tempString.
+		std::cout << "2. Example Reverse Iterator." << std::endl;							// Reverse iterates through tempString.
+		std::cout << "3. Example Constant Iterator." << std::endl;							// Uses a constant iterator to iterate through tempString.
+		std::cout << "4. Example Constant Reverse Iterator." << std::endl;					// Reverse iterates through tempString via const iterator.
+		std::cin >> selection;
+
+		switch (selection)
+		{
+		case 0:
+			menuActive = false;
+			break;
+		case 1:
+			for (std::string::iterator it = tempString.begin(); it != tempString.end(); ++it)
+				std::cout << *it;
+			break;
+		case 2:
+			// A reverse iterator will always begin at the end of a string thus rBegin in this case is the final character in tempString.
+			for (std::string::reverse_iterator rIt = tempString.rbegin(); rIt != tempString.rend(); ++rIt)
+				std::cout << *rIt;
+			break;
+		case 3:
+			// Note that constant iterators generally point to const content however they cannot modify contents even if the string itself is not const.
+			for (auto it = tempString.cbegin(); it != tempString.cend(); ++it)
+				std::cout << *it << '\n';
+			break;
+		case 4:
+			for (auto it = tempString.crbegin(); it != tempString.crend(); ++it)
+				std::cout << *it << '\n';
+			break;
+		default:
+			break;
+		}
+	}
 }
 
 // ALL STRING CAPACITY FUNCTIONS
@@ -78,6 +110,7 @@ void Strings::Capacity()
 
 	bool menuActive = true;
 
+	// Enables the continuation of the user menu as long as they haven't chosen to exit it.
 	while (menuActive == true)
 	{
 		std::cout << "0. Exit Menu." << std::endl;
@@ -90,6 +123,7 @@ void Strings::Capacity()
 		std::cout << "7. Shrink to Fit." << std::endl;
 		std::cin >> selection;
 
+		// Selects an example function according to the users selection.
 		switch (selection)
 		{
 		case 0:
@@ -144,7 +178,7 @@ void Strings::Capacity()
 			std::cout << "3. Current Capacity of string: " << secondaryString.capacity() << std::endl;
 			std::cout << secondaryString << std::endl;
 			break;
-		default:
+			default:
 			break;
 		}
 
@@ -156,13 +190,134 @@ void Strings::Capacity()
 // ALL STRING ELEMENT ACCESS FUNCTIONS
 void Strings::elementAccess()
 {
+	std::string tempString("Testing String");
+	std::string modifiedString("Hello World.");
 
+	bool menuActive = true;
+	int selection{};
+
+	while (menuActive == true)
+	{
+		std::cout << "0. Exit Menu." << std::endl;
+		std::cout << "1. Operator Example." << std::endl;				// Prints out tempString via operator function.
+		std::cout << "2. At Example." << std::endl;						// Prints out tempString via at function.
+		std::cout << "3. Back Example." << std::endl;					// Returns the character located at the end of string for printing or modification.
+		std::cout << "4. Front Example." << std::endl;					// Returns the character located at the front of string for printing or modification.
+
+		switch (selection)
+		{
+		case 0:
+			menuActive = false;
+			break;
+		case 1:
+			for (int i = 0; i < tempString.length(); ++i)
+				std::cout << tempString[i];
+			break;
+		case 2:
+			for (unsigned i = 0; i < tempString.length(); ++i)
+				std::cout << tempString.at(i);
+			break;
+		case 3:
+			// Changes character at end of string to designated character (note: will replace, not append.)
+			modifiedString.back() = '!';
+			std::cout << modifiedString << '\n';
+			break;
+		case 4:
+			// Changes character at front of string to the designated character.
+			modifiedString.front() = 'T';
+			std::cout << modifiedString << '\n';
+			break;
+		}
+	}
 }
 
 // ALL STRING MODIFIER FUNCTIONS
 void Strings::Modifiers()
 {
+	std::string baseString("The quick brown fox jumps over a lazy dog.");
+	std::string tempString("Testing String");
+	std::string tempString1;
+	std::string tempString2("Writing ");
+	std::string tempString3("Print 10 and then 5 more ");
+	std::string shakespeareString1("to be question");
+	std::string shakespeareString2("the");
+	std::string shakespeareString3("or not to be");
+	std::string::iterator it;
+	std::string modifiedString("Hello World");
+	std::string name("John");
+	std::string familyName("Smith"); 
 
+	bool menuActive = true;
+	int selection{};
+
+	while (menuActive == true)
+	{
+		std::cout << "0. Exit Menu." << std::endl;								// Exits the modifier menu.
+		std::cout << "1. Operator Append to String." << std::endl;				// Appends to the designated string via += operator.
+		std::cout << "2. Append to String." << std::endl;						// Append to string function.
+		std::cout << "3. Push back to String." << std::endl;					// Push back something onto the string.
+		std::cout << "4. Assign to String." << std::endl;						// Assigns the indicated values into the string (overwrite).
+		std::cout << "5. Insert into String." << std::endl;						// Inserts the indicated values into the string (doesn't overwrite).
+		std::cout << "6. Erase from String." << std::endl;
+		std::cout << "7. Replace in String." << std::endl;
+		std::cout << "8. Swap within String." << std::endl;
+		std::cout << "9. Pop Back from String." << std::endl;
+		std::cin >> selection;
+
+		switch (selection)
+		{
+		case 0:
+			menuActive = false;
+			break;
+		case 1:
+			name += " K. ";
+			name += familyName;
+			name += '\n';
+			std::cout << name << std::endl;
+			break;
+		case 2:
+			tempString1.append(tempString2);									// Appends tempString2 onto tempString1;
+			tempString1.append(tempString3, 6, 3);								// Appends three characters from position 6 in tempString3 onto tempString1.
+			tempString1.append("dots are cool", 5);								// Appends the first 5 characters from "dots are cool" onto tempString1.
+			tempString1.append("here: ");										// Appends a manually entered string onto tempString1.
+			tempString1.append(10u, '.');										// Appends 10 .'s onto tempString1.
+			tempString1.append(tempString3.begin()+8, tempString3.end());		// Appends everything from 8 characters into tempString3 to the end onto tempString1.
+			tempString1.append(5, 0x2E);										// Appends 5 .'s onto tempString1.
+			std::cout << tempString1 << std::endl;
+			break;
+		case 3:
+
+			break;
+		case 4:
+			tempString1.assign(baseString);
+			std::cout << tempString1 << '\n';
+			tempString1.assign(baseString, 10, 9);								// Assigns 9 characters from the 10th characterin baseString into tempString1.
+			std::cout << tempString1 << '\n';
+			tempString1.assign("pangrams are cool", 7);							// Assigns the first 7 characters of the manual string to tempString1.
+			std::cout << tempString1 << '\n';
+			tempString1.assign("c-string");										// Assigns the entirety of the manual string to tempString1.									
+			std::cout << tempString1 << '\n';
+			tempString1.assign(10, '*');										// Assigns 10 *'s to tempString1.
+			std::cout << tempString1 << '\n';
+			tempString1.assign(10, 0x2D);										// Assigns 10 -'s to tempString1.
+			std::cout << tempString1 << '\n';
+			tempString1.assign(baseString.begin()+16, baseString.end() - 12);	// Assigns a selection from BaseString into tempString1.
+			std::cout << tempString1 << '\n';
+			break;
+		case 5:
+			shakespeareString1.insert(6, shakespeareString2);												// Inserts shakespeareString2 at 6th character of string1.
+			shakespeareString1.insert(6, shakespeareString3, 3, 4);											// Inserts 3 characters, position 4 of string2 into 6th spot of string1.
+			shakespeareString1.insert(10, "that is cool", 8);												// Inserts 8 characters from the manual string into 10th spot of string1.
+			shakespeareString1.insert(10, "to be ");														// Inserts the whole manual string into 10th spot of string1.
+			shakespeareString1.insert(15, 1, ':');															// Inserts 1 : into the 15th spot of string1.
+			it = shakespeareString1.insert(shakespeareString1.begin() + 5, ',');							// Iterates through to the 5th spot of string1 and adds a ,
+			shakespeareString1.insert(shakespeareString1.end(), 3, '.');									// Inserts 3 .'s at the end of string1.
+			shakespeareString1.insert(it + 2, shakespeareString3.begin(), shakespeareString3.end() + 3);	 
+			break;
+		}
+
+		tempString1 = ("");
+	}
 }
 
 // ALL STRING OPERATIONS FUNCTIONS
