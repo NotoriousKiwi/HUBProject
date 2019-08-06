@@ -27,6 +27,7 @@ public:
 	void elementAccess();
 	void Modifiers();
 	void stringOperations();
+	void functionOverloads();
 
 	static const int Height = 6;
 	static const int Width = 1;

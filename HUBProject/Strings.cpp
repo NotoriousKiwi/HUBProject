@@ -1,5 +1,7 @@
 #include "Strings.h"
 #include <iostream>
+#include <fstream>
+#include <cstring>
 
 using std::cin;
 
@@ -242,10 +244,18 @@ void Strings::Modifiers()
 	std::string shakespeareString1("to be question");
 	std::string shakespeareString2("the");
 	std::string shakespeareString3("or not to be");
+	std::string eraseString("This is an example sentence.");
 	std::string::iterator it;
 	std::string modifiedString("Hello World");
 	std::string name("John");
-	std::string familyName("Smith"); 
+	std::string familyName("Smith");
+	std::string replaceString("This is a test string");
+	std::string replaceString2("n example");
+	std::string replaceString3("sample phrase");
+	std::string replaceString4("useful.");
+	std::string swapString1("money");
+	std::string swapString2("goods");
+	std::ifstream file("test.txt", std::ios::in);
 
 	bool menuActive = true;
 	int selection{};
@@ -269,12 +279,14 @@ void Strings::Modifiers()
 		case 0:
 			menuActive = false;
 			break;
+		// OPERATOR +=
 		case 1:
 			name += " K. ";
 			name += familyName;
 			name += '\n';
 			std::cout << name << std::endl;
 			break;
+		// APPEND
 		case 2:
 			tempString1.append(tempString2);									// Appends tempString2 onto tempString1;
 			tempString1.append(tempString3, 6, 3);								// Appends three characters from position 6 in tempString3 onto tempString1.
@@ -285,9 +297,15 @@ void Strings::Modifiers()
 			tempString1.append(5, 0x2E);										// Appends 5 .'s onto tempString1.
 			std::cout << tempString1 << std::endl;
 			break;
+		// PUSH BACK
 		case 3:
-
+			if (file)
+			{
+				while (!file.eof()) tempString.push_back(file.get());
+			}
+			std::cout << tempString << '\n';
 			break;
+		// ASSIGN
 		case 4:
 			tempString1.assign(baseString);
 			std::cout << tempString1 << '\n';
@@ -304,6 +322,7 @@ void Strings::Modifiers()
 			tempString1.assign(baseString.begin()+16, baseString.end() - 12);	// Assigns a selection from BaseString into tempString1.
 			std::cout << tempString1 << '\n';
 			break;
+		// INSERT
 		case 5:
 			shakespeareString1.insert(6, shakespeareString2);												// Inserts shakespeareString2 at 6th character of string1.
 			shakespeareString1.insert(6, shakespeareString3, 3, 4);											// Inserts 3 characters, position 4 of string2 into 6th spot of string1.
@@ -314,14 +333,140 @@ void Strings::Modifiers()
 			shakespeareString1.insert(shakespeareString1.end(), 3, '.');									// Inserts 3 .'s at the end of string1.
 			shakespeareString1.insert(it + 2, shakespeareString3.begin(), shakespeareString3.end() + 3);	 
 			break;
+		// ERASE
+		case 6:
+			eraseString.erase(10, 8);																		// Erases 8 characters from the 10th character onwards.													
+			std::cout << eraseString << '\n';
+			eraseString.erase(eraseString.begin() + 9);														// Erases a single character 9 characters from the beginning.
+			std::cout << eraseString << '\n';
+			eraseString.erase(eraseString.begin() + 5, eraseString.end() - 9);								// Erases everything from 5 characters in to 9 characters before the end.
+			std::cout << eraseString << '\n';
+			break;
+		// REPLACE
+		case 7:
+			// Replacing characters through positions.
+			tempString = replaceString;																						 
+			tempString.replace(9, 5, replaceString2);																		// Highlights 5 characters from 9 characters in and replaces with string2.
+			tempString.replace(19, 6, replaceString3, 7, 6);																// Highlights a selection from string3 and puts it in highlights string1.
+			tempString.replace(8, 10, "just a");																			// Replaces highlighted section in string1 with manual string.
+			tempString.replace(8, 6, "a shorty", 7);																		// Replaces highlighted section with first 7 characters from manual string.
+			tempString.replace(22, 1, 3, '!');																				// Replaces with 3 !'s
+
+			// Replacing characters through Iterators.
+			tempString.replace(replaceString.begin(), tempString.end() - 3, replaceString3);								      
+			tempString.replace(replaceString.begin(), tempString.begin() + 6, "replace");             
+			tempString.replace(replaceString.begin() + 8, tempString.begin() + 14, "is coolness", 7); 
+			tempString.replace(replaceString.begin() + 12, tempString.end() - 4, 4, 'o');             
+			tempString.replace(replaceString.begin() + 11, tempString.end(), replaceString4.begin(), replaceString4.end());
+			std::cout << tempString << '\n';
+			break;
+		// SWAP
+		case 8:
+			std::cout << "Before the swap, buyer has " << swapString1;
+			std::cout << " and seller has " << swapString2 << '\n';
+			swapString2.swap(swapString1);
+			std::cout << "After the swap, buyer has " << swapString1;
+			std::cout << " and seller has " << swapString2 << '\n';
+			break;
+		// POP BACK
+		case 9:
+			tempString.pop_back();
+			std::cout << tempString << '\n';
+			break;
 		}
 
-		tempString1 = ("");
+		tempString1 = ("Testing String");
 	}
 }
 
 // ALL STRING OPERATIONS FUNCTIONS
 void Strings::stringOperations()
+{
+	std::string cString("Please split this sentence into tokens");
+
+	int selection;
+	bool menuActive = true;
+
+	std::cout << "0. Exit Menu." << std::endl;
+	std::cout << "1. C String." << std::endl;
+	std::cout << "2. Data." << std::endl;
+	std::cout << "3. Get Allocator." << std::endl;
+	std::cout << "4. Copy." << std::endl;
+	std::cout << "5. Find." << std::endl;
+	std::cout << "6. Last Find." << std::endl;
+	std::cout << "7. First First Of." << std::endl;
+	std::cout << "8. First Last Of." << std::endl;
+	std::cout << "9. Find First Absence." << std::endl;
+	std::cout << "10. First Last Absence." << std::endl;
+	std::cout << "11. Substring." << std::endl;
+	std::cout << "12. Compare." << std::endl;
+	std::cin >> selection;
+
+	while (menuActive == true)
+	{
+		switch (selection)
+		{
+		// EXIT MENU
+		case 0:
+			menuActive = false;
+			break;
+		// C STRING
+		case 1:
+		
+			break;
+		// DATA
+		case 2:
+
+			break;
+		// GET ALLOCATOR
+		case 3:
+
+			break;
+		// COPY
+		case 4:
+
+			break;
+		// FIND
+		case 5:
+
+			break;
+		// FIND LAST
+		case 6:
+
+			break;
+		// FIND FIRST OF
+		case 7:
+
+			break;
+		// FIND LAST OF
+		case 8:
+
+			break;
+		// FIND FIRST ABSENCE
+		case 9:
+
+			break;
+		// FIND LAST ABSENCE
+		case 10:
+
+			break;
+		// SUBSTRING
+		case 11:
+
+			break;
+		// COMPARE
+		case 12:
+
+			break;
+		default:
+
+			break;
+		}
+	}
+	
+}
+
+void Strings::functionOverloads()
 {
 
 }
