@@ -1,14 +1,2 @@
-﻿  Array.cpp
-  CodeRepo1.cpp
-  FileIO.cpp
-C:\Users\shado\Documents\Visual Studio 2019\Projects\HUBProject\HUBProject\FileIO.cpp(50,8): warning C4101: 'c': unreferenced local variable
-C:\Users\shado\Documents\Visual Studio 2019\Projects\HUBProject\HUBProject\FileIO.cpp(49,8): warning C4101: 'word': unreferenced local variable
-  Functions.cpp
-  HUBProject.cpp
-  OperationOverloading.cpp
-  Sorting.cpp
-  Strings.cpp
-C:\Users\shado\Documents\Visual Studio 2019\Projects\HUBProject\HUBProject\Strings.cpp(215,22): warning C4018: '<': signed/unsigned mismatch
-  Vector.cpp
-  Generating Code...
+﻿  LinkedList.cpp
   HUBProject.vcxproj -> C:\Users\shado\Documents\Visual Studio 2019\Projects\HUBProject\Debug\HUBProject.exe

@@ -63,6 +63,12 @@
     <ClCompile Include="Sorting.cpp">
       <Filter>Source Files\IntroductionCPP</Filter>
     </ClCompile>
+    <ClCompile Include="Pointers.cpp">
+      <Filter>Source Files\IntroductionCPP</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkedList.cpp">
+      <Filter>Source Files\CodeDesign</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vector.h">
@@ -88,6 +94,12 @@
     </ClInclude>
     <ClInclude Include="Sorting.h">
       <Filter>Header Files\IntroductionCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="Pointers.h">
+      <Filter>Header Files\IntroductionCPP</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedList.h">
+      <Filter>Header Files\CodeDesign</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
