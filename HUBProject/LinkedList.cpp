@@ -26,7 +26,8 @@ int LinkedList::ListSetup()
 	third->next = NULL;
 
 	PrintList(head);
-	Push(&head, 11);
+	InsertAfter(second, 11);
+	//Push(&head, 11);
 	PrintList(head);
 
 	return 0;
@@ -41,6 +42,35 @@ void LinkedList::PrintList(LinkedList* n)
 		n = n->next;
 	}
 	std::cout << std::endl;
+}
+
+void LinkedList::InsertAfter(LinkedList* previous_node, int new_data)
+{
+	if (previous_node == NULL)
+	{
+		std::cout << "The previous node cannot be NULL." << std::endl;
+		return;
+	}
+	LinkedList* new_node = (LinkedList*)malloc(sizeof(LinkedList));
+
+	new_node->data = new_data;
+	new_node->next = previous_node->next;
+	previous_node->next = new_node;
+}
+
+void LinkedList::Append(LinkedList** head_reference, int new_data)
+{
+	LinkedList* new_node = (LinkedList*)malloc(sizeof(LinkedList));
+	LinkedList* last = *head_reference;
+	
+	new_node->data = new_data;
+	new_node->next = NULL;
+
+	while (last->next != NULL)
+	{
+		last = last->next;
+		last->next = new_node;
+	}
 }
 
 void LinkedList::Push(LinkedList** head_ref, int new_data)

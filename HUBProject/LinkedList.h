@@ -35,6 +35,8 @@ public:
 	int ListSetup();
 
 	void PrintList(LinkedList* n);
+	void InsertAfter(LinkedList* previous_node, int new_data);
+	void Append(LinkedList** head_reference, int new_data);
 	void Push(LinkedList** head_ref, int new_data);
 
 	~LinkedList();
