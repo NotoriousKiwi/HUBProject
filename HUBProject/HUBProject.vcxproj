@@ -153,6 +153,8 @@
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="HUBProject.cpp" />
     <ClCompile Include="LinkedList.cpp" />
+    <ClCompile Include="ObjectParticles.cpp" />
+    <ClCompile Include="ObjectPool.cpp" />
     <ClCompile Include="OperationOverloading.cpp" />
     <ClCompile Include="Pointers.cpp" />
     <ClCompile Include="Sorting.cpp" />
@@ -164,6 +166,8 @@
     <ClInclude Include="FileIO.h" />
     <ClInclude Include="Functions.h" />
     <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="ObjectParticles.h" />
+    <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="OperationOverloading.h" />
     <ClInclude Include="Pointers.h" />
     <ClInclude Include="Sorting.h" />

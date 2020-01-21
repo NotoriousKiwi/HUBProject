@@ -69,6 +69,12 @@
     <ClCompile Include="LinkedList.cpp">
       <Filter>Source Files\CodeDesign</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectParticles.cpp">
+      <Filter>Source Files\CodeDesign</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectPool.cpp">
+      <Filter>Source Files\CodeDesign</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vector.h">
@@ -99,6 +105,12 @@
       <Filter>Header Files\IntroductionCPP</Filter>
     </ClInclude>
     <ClInclude Include="LinkedList.h">
+      <Filter>Header Files\CodeDesign</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectParticles.h">
+      <Filter>Header Files\CodeDesign</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectPool.h">
       <Filter>Header Files\CodeDesign</Filter>
     </ClInclude>
   </ItemGroup>
